@@ -4,13 +4,8 @@ pipeline{
     {
         pollSCM " * * * * * "
     }
-    optionspipeline{
-    agent any
-    triggers
-    {
-        pollSCM " * * * * * "
-    }
-    options
+    
+        options
     {
         buildDiscarder(logRotator(numToKeepStr: '5' , daysToKeepStr: '5'))
         timeout(time: 1, unit: 'HOURS')
